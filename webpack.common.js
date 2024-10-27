@@ -20,11 +20,11 @@ module.exports = {
   },
 
   optimization: {
-    minimize: true,
-    minimizer: [
-      new TerserPlugin(),
-      new CssMinimizerPlugin(),
-    ],
+    // minimize: true,
+    // minimizer: [
+    //   new TerserPlugin(),
+    //   new CssMinimizerPlugin(),
+    // ],
     splitChunks: {
       chunks: 'all',
       minSize: 20000,

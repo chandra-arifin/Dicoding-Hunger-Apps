@@ -1,6 +1,6 @@
 import RestoSource from '../../data/restodb-source';
 import { createRestoItemTemplate } from '../templates/template-creator';
-import Swal from 'sweetalert2/src/sweetalert2.js';
+import Swal from 'sweetalert2';
 
 const loadingComponent = document.querySelector('loading-component');
 

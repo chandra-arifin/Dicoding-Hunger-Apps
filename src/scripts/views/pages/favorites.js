@@ -1,7 +1,7 @@
 import FavoriteRestoIdb from '../../data/favorite-resto-idb';
 import FavoriteRestoView from './like-resto/favorite-resto-view';
 import FavoriteRestoShowPresenter from './like-resto/favorite-resto-show-presenter';
-import Swal from 'sweetalert2/src/sweetalert2.js';
+import Swal from 'sweetalert2';
 
 const loadingComponent = document.querySelector('loading-component');
 

@@ -2,7 +2,7 @@ import UrlParser from '../../routes/url-parser';
 import RestoSource from '../../data/restodb-source';
 import { createRestoDetailTemplate } from '../templates/template-creator';
 import LikeButtonPresenter from '../../utils/like-button-presenter';
-import Swal from 'sweetalert2/src/sweetalert2.js';
+import Swal from 'sweetalert2';
 
 const loadingComponent = document.querySelector('loading-component');
 
