@@ -19,7 +19,6 @@ body {
   color: #424242;
 }
 
-/* #4d89c5; */
 
 header {
   padding: 1em;
@@ -33,6 +32,14 @@ header a {
   min-width: 44px;
   min-height: 44px;
   }
+
+.lazyload {
+    opacity: 0;
+    transition: opacity 300ms;
+}
+.lazyloaded {
+    opacity: 1;
+}
 
 .navbar {
   display: flex;
@@ -402,19 +409,10 @@ img {
 
 @media screen and (min-width: 1200px) {
   main {
-    max-width: 1200px;
     align-items: center;
   }
 
   .resto  {
     width: 60%;
-  }
-
-  header {
-    width: 1200px;
-  }
-
-  footer {
-    width: 1200px;
   }
 }

@@ -61,6 +61,19 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name].[ext]',
+              outputPath: 'images/',
+              publicPath: 'images/',
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
@@ -80,6 +93,10 @@ module.exports = {
             // CopyWebpackPlugin mengabaikan seluruh berkas yang berada dalam folder `images`
             ignore: ['**/images/**'],
           },
+        },
+        {
+          from: path.resolve(__dirname, 'src/public/images'),
+          to: path.resolve(__dirname, 'dist/images'),
         },
       ],
     }),

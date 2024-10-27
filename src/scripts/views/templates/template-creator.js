@@ -4,20 +4,19 @@ const createRestoDetailTemplate = (resto) => `
     <article class="post-item">
       <picture>
           <source media="(max-width: 600px)" 
-              srcset="${CONFIG.BASE_IMAGE_URL_SMALL + resto.pictureId}" 600w
+              data-srcset="${CONFIG.BASE_IMAGE_URL_SMALL + resto.pictureId}" 600w
               >
           <source media="(max-width: 900px)" 
-              srcset="${CONFIG.BASE_IMAGE_URL_MED + resto.pictureId}" 900w
+              data-srcset="${CONFIG.BASE_IMAGE_URL_MED + resto.pictureId}" 900w
               >
           <img
             class="lazyload post-item__thumbnail"
-            src="${CONFIG.BASE_IMAGE_URL_LARGE + resto.pictureId}"
             data-src="${CONFIG.BASE_IMAGE_URL_LARGE + resto.pictureId}"
             alt="${resto.name}"
           />
       </picture>      
       <div class="post-item__content">
-        <h1 class="">
+        <h1 class="post-item__name">
           ${resto.name}
         </h1>
         <p class="">
@@ -45,7 +44,7 @@ const createRestoDetailTemplate = (resto) => `
           Reviews:
           <ul>
             ${resto.customerReviews.map(review => `<li class="post-item__review">
-              Name: ${review.name}<br/>
+              <div class="namaReview">Name: ${review.name}</div><br/>
               Review: ${review.review}<br/>
               Date: ${review.date}
               </li>`).join('')}
@@ -60,14 +59,13 @@ const createRestoItemTemplate = (resto) => `
   <article class="post-item">
       <picture>
           <source media="(max-width: 600px)" 
-              srcset="${CONFIG.BASE_IMAGE_URL_SMALL + resto.pictureId}" 600w
+              data-srcset="${CONFIG.BASE_IMAGE_URL_SMALL + resto.pictureId}" 600w
               >
           <source media="(max-width: 900px)" 
-              srcset="${CONFIG.BASE_IMAGE_URL_MED + resto.pictureId}" 900w
+              data-srcset="${CONFIG.BASE_IMAGE_URL_MED + resto.pictureId}" 900w
               >
           <img
             class="lazyload post-item__thumbnail"
-            src="${CONFIG.BASE_IMAGE_URL_LARGE + resto.pictureId}"
             data-src="${CONFIG.BASE_IMAGE_URL_LARGE + resto.pictureId}"
             alt="${resto.name}"
           />

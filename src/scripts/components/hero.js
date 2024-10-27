@@ -110,15 +110,10 @@ class Hero extends HTMLElement {
     <div class="hero" >
         <picture>
             <div class="skeleton skeleton-img"></div>
-            <source media="(max-width: 600px)" 
-                srcset="https://restaurant-api.dicoding.dev/images/small/45" 600w
-                >
-            <source media="(max-width: 900px)" 
-                srcset="https://restaurant-api.dicoding.dev/images/medium/45" 900w
-                >
+            
             <img class="hero__img" 
-                data-src="https://restaurant-api.dicoding.dev/images/large/45" 
-                src="https://restaurant-api.dicoding.dev/images/large/45" 
+                data-src="/images/hero-image.jpg" 
+                src="/images/hero-image.jpg" 
                 alt="gambar resto"/>
         </picture>
         <div class="hero__inner">

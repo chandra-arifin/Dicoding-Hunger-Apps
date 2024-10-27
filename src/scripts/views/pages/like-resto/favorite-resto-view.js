@@ -25,7 +25,9 @@ class FavoriteRestoView {
 
   _getEmptyRestoTemplate() {
     return `
-          Tidak ada Resto Favorite yang dipilih       
+      <div class="posts-item__not__found">
+        Tidak ada Resto Favorite yang dipilih
+      </div>
     `;
   }
 }
