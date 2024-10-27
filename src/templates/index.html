@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hunger App Made By Chandra Arifin">
+  <title>Hunger App</title>
+
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="icon" href="/public/icons/favicon.ico">
+  <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+  <script src="https://use.fontawesome.com/b070c8f1df.js"></script>
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="manifest" href="./app.webmanifest">
+</head>
+<body>
+  
+  <a href="#maincontent" class="skip-link">Menuju ke konten</a>
+  
+  <loading-component></loading-component>
+
+  <header class="navbar">
+    <a href="/" class="brand">Hunger App</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation">
+      <div></div>
+      <div></div>
+      <div></div>
+      </button>
+    <ul>
+    <li><a href="/#/all-restaurant">Home</a></li>
+    <li><a href="/#/favorites">Favorite</a></li>
+    <li><a href="https://www.linkedin.com/in/chandra-arifin-dev/" target="_blank">About Us</a></li>
+    </ul>
+    </header>   
+    
+  <main>
+    <hero-component></hero-component>
+    <div id="maincontent" tabindex="0"></div> 
+  </main>
+  
+  <footer>
+    <footer-bar></footer-bar>
+  </footer>
+
+
+  <script>
+    function toggleMenu() {
+      const menu = document.querySelector('.navbar ul');
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    function handleResize() {
+      const menu = document.querySelector('.navbar ul');
+      if (window.innerWidth > 768) {
+        menu.style.display = 'flex'; 
+      } else {
+        menu.style.display = 'none'; 
+      }
+    }
+
+    window.addEventListener('resize', handleResize);
+  </script>
+  
+</body>
+</html>
