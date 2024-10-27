@@ -15,10 +15,11 @@ class Hero extends HTMLElement {
 
 .hero__img {
     width: 100%;
-    height: 250px;
+    height: 500px;
     object-fit: cover;
     object-position: center;
     justify-content: center;
+    display: none;
 }
     
 .hero {
@@ -39,13 +40,40 @@ class Hero extends HTMLElement {
   margin-top: 16px;
   font-size: 18px;
   font-weight: 300;
+  display: none;
 }
 
 .hero__title {
     font-weight: 500;
     font-size: 26px;
     height: 100%;
+    display: none;
 }
+
+
+.skeleton {
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    margin: 10px 0;
+  }
+  
+  .skeleton-img {
+    width: 100%;
+    height: 500px;
+    display: block;
+  }
+  
+  .skeleton-title {
+    width: 60%;
+    height: 24px;
+    display: block;
+   }
+  
+  .skeleton-text {
+    width: 80%;
+    height: 16px;
+    display: block;
+  }
 
     `
     }
@@ -55,7 +83,22 @@ class Hero extends HTMLElement {
     }
 
     connectedCallback() {
-        this.render()
+        this.render();
+        const img = this._shadowRoot.querySelector('.hero__img');
+        const skeletonImg = this._shadowRoot.querySelector('.skeleton-img');
+        const title = this.shadowRoot.querySelector('.hero__title');
+        const tagline = this.shadowRoot.querySelector('.hero__tagline');
+        const skeletonTitle = this.shadowRoot.querySelector('.skeleton-title');
+        const skeletonText = this.shadowRoot.querySelector('.skeleton-text');
+
+        img.onload = () => {
+            skeletonImg.style.display = 'none';
+            img.style.display = 'block';
+            skeletonTitle.style.display = 'none';
+            title.style.display = 'block';
+            skeletonText.style.display = 'none';
+            tagline.style.display = 'block';
+        };
     }
 
     render() {
@@ -66,6 +109,7 @@ class Hero extends HTMLElement {
         this._shadowRoot.innerHTML += `      
     <div class="hero" >
         <picture>
+            <div class="skeleton skeleton-img"></div>
             <source media="(max-width: 600px)" 
                 srcset="https://restaurant-api.dicoding.dev/images/small/45" 600w
                 >
@@ -78,7 +122,9 @@ class Hero extends HTMLElement {
                 alt="gambar resto"/>
         </picture>
         <div class="hero__inner">
+            <div class="skeleton skeleton-title"></div>
             <h1 class="hero__title">Restaurant Apps</h1>
+            <div class="skeleton skeleton-text"></div>
             <p class="hero__tagline">
                 This Restaurant Apps contains alot of recommendation to more places that provides more foods and beverages.
             </p>

@@ -26,6 +26,9 @@ const AllResto = {
         <h1 class="explore">Explore Restaurant</h1>
     
         <div class="posts" id="posts">
+          <div class="skeleton skeleton-post"></div>
+          <div class="skeleton skeleton-post"></div>
+          <div class="skeleton skeleton-post"></div>
         </div>
     </section> 
     `;
@@ -41,6 +44,8 @@ const AllResto = {
       const restos = await RestoSource.allRestos();
       
       hideLoading();
+
+      restosContainer.innerHTML = '';
 
       restos.forEach((resto) => {
         restosContainer.innerHTML += createRestoItemTemplate(resto);
