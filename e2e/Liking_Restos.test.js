@@ -1,5 +1,4 @@
 const assert = require('assert');
-const Swal = require('sweetalert2');
 
 Feature('Liking Restos');
 
@@ -29,6 +28,30 @@ Scenario('liking one resto', async ({ I }) => {
   const likedRestoTitle = await I.grabTextFrom('.post-item__name');
 
   assert.strictEqual(firstRestoTitle, likedRestoTitle.trim().replace(/\s+/g, ' '));
+});
+
+Scenario('unliking one resto', async ({ I }) => {
+  I.amOnPage('/');
+
+  I.seeElement('.post-item__name a');
+  let firstResto = locate('.post-item__name a').first();
+  let firstRestoTitle = await I.grabTextFrom(firstResto);
+  I.click(firstResto);
+
+  I.seeElement('#likeButton');
+  I.click('#likeButton');
+
+  I.amOnPage('/#/favorites');
+
+  firstResto = locate('.post-item__name a').first();
+  firstRestoTitle = await I.grabTextFrom(firstResto);
+  I.click(firstResto);
+
+  I.seeElement('#likeButton');
+  I.click('#likeButton');
+
+  I.amOnPage('/#/favorites');
+  I.see('Tidak ada Resto Favorite yang dipilih', '.posts-item__not__found');
 });
 
 Scenario('input new comment review', async ({ I }) => {

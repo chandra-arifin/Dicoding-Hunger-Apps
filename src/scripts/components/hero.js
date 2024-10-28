@@ -110,10 +110,12 @@ class Hero extends HTMLElement {
     <div class="hero" >
         <picture>
             <div class="skeleton skeleton-img"></div>
-            
+            <source media="(max-width: 600px)" 
+              srcset="./images/hero-image-small.jpg" 600w>
+            <source media="(max-width: 900px)" 
+              srcset="./images/hero-image-large.jpg" 900w>            
             <img class="hero__img" 
-                data-src="/images/hero-image.jpg" 
-                src="/images/hero-image.jpg" 
+                src="./images/hero-image.jpg" 
                 alt="gambar resto"/>
         </picture>
         <div class="hero__inner">
